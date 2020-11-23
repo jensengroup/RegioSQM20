@@ -21,8 +21,8 @@ formation convertion and RDKit in the Python environment for everything else.
 
 Note the following:
 
-    o The path to your Python environment must be specified in the regiosqm/conf_search.py file.
-    o The number of CPUs/molecules and CPUs/conformer has to be specified in the regiosqm/regiosqm.py and regiosqm/conf_search.py files, respectively. (Setting CPUs/molecules = 2 and CPUs/conformer = 4 will allow RegioSQM20 to use a maximum of 2*4=8 CPUs that you must have available.)
+1. The path to your Python environment must be specified in the regiosqm/conf_search.py file.
+2. The number of CPUs/molecules and CPUs/conformer has to be specified in the regiosqm/regiosqm.py and regiosqm/conf_search.py files, respectively. (Setting CPUs/molecules = 2 and CPUs/conformer = 4 will allow RegioSQM20 to use a maximum of 2*4=8 CPUs that you must have available.)
 
 # Usage
 

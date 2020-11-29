@@ -9,7 +9,7 @@ from conf_search import acc_conf_search
 
 class comp:
 
-    def __init__(self, name=None, smiles=None, min_conf=5, rot_conf=5, max_conf=60, conf_cutoff=3, measured_atoms=None, calc_dir=os.getcwd()):
+    def __init__(self, name=None, smiles=None, min_conf=1, rot_conf=3, max_conf=20, conf_cutoff=3, measured_atoms=None, calc_dir=os.getcwd()):
         """Compound object for collecting all data."""
 
         self.name = name

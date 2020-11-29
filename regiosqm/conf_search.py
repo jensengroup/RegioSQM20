@@ -90,7 +90,7 @@ def run_xTB(xtb_args):
     
 
 
-def fast_conf_search(rdkit_mol, name='mol', min_conf=5, rot_conf=5, max_conf=60, chrg=0, 
+def fast_conf_search(rdkit_mol, name='mol', min_conf=1, rot_conf=3, max_conf=20, chrg=0, 
                     method='ff', solvent='Methanol', conf_cutoff=3, calc_dir=os.getcwd(), dirprefix=''): 
                     
     """ 
@@ -166,7 +166,7 @@ def fast_conf_search(rdkit_mol, name='mol', min_conf=5, rot_conf=5, max_conf=60,
 
 
 
-def acc_conf_search(rdkit_mol, name='mol', min_conf=5, rot_conf=5, max_conf=60, chrg=0, 
+def acc_conf_search(rdkit_mol, name='mol', min_conf=1, rot_conf=3, max_conf=20, chrg=0, 
                     method='1', solvent='Methanol', conf_cutoff=3, calc_dir=os.getcwd(), dirprefix=''):
     """  
     Run fast_conf_search and then higher level calculations.
@@ -207,7 +207,7 @@ if __name__ == "__main__":
 
     input_smiles = 'c1c(c2cc(sc2)C)n[nH]c1'
     
-    print(acc_conf_search(Chem.MolFromSmiles(input_smiles), name='mol', min_conf=5, rot_conf=5, max_conf=60, chrg=0, 
+    print(acc_conf_search(Chem.MolFromSmiles(input_smiles), name='mol', min_conf=1, rot_conf=3, max_conf=20, chrg=0, 
                         method='1', solvent='Methanol', conf_cutoff=3, calc_dir=os.getcwd(), dirprefix='neutral'))
 
     finish = time.perf_counter()

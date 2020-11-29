@@ -33,7 +33,7 @@ def analyse_results(comp, e_cut, e_cut2, calc_dir, exam):
         heats = comp.tauts[taut]['prot']['energies']
         heats = np.array(heats)
         
-        # # Calculate absolute affinities
+        # Calculate binding energies (the proton affinities are the absolute values of these)
         e_neutral = comp.tauts[taut]['energy']
         heats = heats - e_neutral
 
@@ -64,7 +64,7 @@ def analyse_results(comp, e_cut, e_cut2, calc_dir, exam):
         pred_atoms2 = find_identical_atoms(comp.smiles, pred_atoms2)
         pred_atoms2_list.append(pred_atoms2)
 
-        # Append smiles and name to lists, where the name is related to the reactivity
+        # Append smiles and name to lists, where the name is related to the reactivity based on the highest proton affinity
         smiles_list.append(comp.tauts[taut]['smiles'])
         if abs(min_heats) >= 100: #kcal/mol
             name_list.append(f"High | {'{:.2f}'.format(comp.tauts[taut]['rel_energy'])}")

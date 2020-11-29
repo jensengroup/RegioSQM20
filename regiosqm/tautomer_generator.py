@@ -28,7 +28,7 @@ def reorderTautomers(rdkit_mol):
     return res
 
 
-def rdkit_taut_gen(rdkit_mol, name='mol', min_conf=5, rot_conf=5, max_conf=60, chrg=0, 
+def rdkit_taut_gen(rdkit_mol, name='mol', min_conf=1, rot_conf=3, max_conf=20, chrg=0, 
                 method='1', solvent='Methanol', conf_cutoff=3, taut_cutoff=15, calc_dir=os.getcwd(), dirprefix=''):
     """  
     Generate tautomers and min(3 + 3*rot_bond, max_conf) conformations followed by xTB calculations.

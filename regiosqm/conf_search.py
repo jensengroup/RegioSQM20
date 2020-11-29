@@ -132,7 +132,7 @@ def fast_conf_search(rdkit_mol, name='mol', min_conf=5, rot_conf=5, max_conf=60,
         
     AllChem.EmbedMultipleConfs(rdkit_mol, numConfs=confs,
             useExpTorsionAnglePrefs=True,
-            useBasicKnowledge=True, ETversion=2, randomSeed=90)
+            useBasicKnowledge=True, ETversion=2) #, randomSeed=90)
     
     # Run calculations in parallel
     original_path = f'{calc_dir}/{dirprefix}_fast_conf_search'

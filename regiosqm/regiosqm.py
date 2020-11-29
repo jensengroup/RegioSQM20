@@ -154,7 +154,7 @@ def calculate_and_analyse(args):
     return (final_result, timing_output)
 
 
-def run_app(smiles_filename, e_cut=1.0, e_cut2=3.0, min_conf=5, rot_conf=5, max_conf=60, conf_cutoff=3, exam=False):
+def run_app(smiles_filename, e_cut=1.0, e_cut2=3.0, min_conf=1, rot_conf=3, max_conf=20, conf_cutoff=3, exam=False):
     """ read smiles smiles_filename in the format
     <compound name> <smiles>
 
@@ -224,9 +224,9 @@ def main():
     parser.add_argument('-c', '--cut', action='store', type=float, metavar='N', default=1.0, help="Energy cut-off for 'corr' classification (kcal/mol)")
     parser.add_argument('-c2', '--cut2', action='store', type=float, metavar='N', default=3.0, help="Energy cut-off for 'semi' classification (kcal/mol)")
     
-    parser.add_argument('-mic', '--min_conf', action='store', type=int, metavar='N', default=5, help="Minimum number of conf")
-    parser.add_argument('-rc', '--rot_conf', action='store', type=int, metavar='N', default=5, help="Number of conf pr. rotatable bonds")
-    parser.add_argument('-mac', '--max_conf', action='store', type=int, metavar='N', default=60, help="Maximum number of conf")
+    parser.add_argument('-mic', '--min_conf', action='store', type=int, metavar='N', default=1, help="Minimum number of conf")
+    parser.add_argument('-rc', '--rot_conf', action='store', type=int, metavar='N', default=3, help="Number of conf pr. rotatable bonds")
+    parser.add_argument('-mac', '--max_conf', action='store', type=int, metavar='N', default=20, help="Maximum number of conf")
     parser.add_argument('-cc', '--conf_cutoff', action='store', type=int, metavar='N', default=3, help="Energy cut-off for fast conf search (kcal/mol)")
 
     parser.add_argument('-e', '--exam', action='store_true', help='Check results vs reaction centers in smiles file')

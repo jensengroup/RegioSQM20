@@ -5,6 +5,9 @@ import concurrent.futures
 import operator
 from functools import reduce
 
+from rdkit import Chem
+
+from reorder_atoms import get_atoms_in_order
 from find_atoms import find_identical_atoms
 import molecule_svg as molsvg
 import compound
@@ -29,7 +32,10 @@ def analyse_results(comp, e_cut, e_cut2, calc_dir, exam):
     # Find the winners
     for taut in list(comp.tauts.keys()):
         
-        # Read energies
+        # Mol object of taut with same atom order as input smiles
+        taut_mol = get_atoms_in_order(Chem.MolFromSmiles(comp.smiles), [Chem.MolFromSmiles(comp.tauts[taut]['smiles'])])[0]
+        
+        # Read energies of protonated tautomers
         heats = comp.tauts[taut]['prot']['energies']
         heats = np.array(heats)
         
@@ -46,7 +52,7 @@ def analyse_results(comp, e_cut, e_cut2, calc_dir, exam):
             output.append(f'WARNING! No output conformers match input for {taut} \n') #print
             continue
 
-        # Read reactive center
+        # Read all reaction centers
         atoms = comp.tauts[taut]['prot']['reac_sites']
         atoms = np.array(atoms)
 
@@ -54,14 +60,14 @@ def analyse_results(comp, e_cut, e_cut2, calc_dir, exam):
         winners = np.where( rel_heats < e_cut )
         winners = winners[0]
         pred_atoms = np.unique(atoms[winners]).tolist()
-        pred_atoms = find_identical_atoms(comp.smiles, pred_atoms)
+        pred_atoms = find_identical_atoms(taut_mol, pred_atoms)
         pred_atoms_list.append(pred_atoms)
 
         # Secondary winners
         winners2 = np.where( rel_heats < e_cut2 )
         winners2 = winners2[0]
         pred_atoms2 = np.unique(atoms[winners2]).tolist()
-        pred_atoms2 = find_identical_atoms(comp.smiles, pred_atoms2)
+        pred_atoms2 = find_identical_atoms(taut_mol, pred_atoms2)
         pred_atoms2_list.append(pred_atoms2)
 
         # Append smiles and name to lists, where the name is related to the reactivity based on the highest proton affinity
@@ -179,7 +185,8 @@ def run_app(smiles_filename, e_cut=1.0, e_cut2=3.0, min_conf=1, rot_conf=3, max_
 
         if exam:
             measured_atoms = [int(x) for x in words[2].split(",")]
-            comps_measured_atoms.append(find_identical_atoms(words[1], measured_atoms))
+            measured_atoms = find_identical_atoms(Chem.MolFromSmiles(words[1]), measured_atoms)
+            comps_measured_atoms.append(measured_atoms)
         else:
             comps_measured_atoms.append(None)
     f.close() 

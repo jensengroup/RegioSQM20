@@ -45,8 +45,8 @@ class comp:
                 best_conf, best_energy = acc_conf_search(Chem.MolFromSmiles(csmile), name=cname, min_conf=min_conf, rot_conf=rot_conf, max_conf=max_conf, 
                                                         chrg=int(self.neutral_charge+1), method='1', solvent='Methanol', conf_cutoff=conf_cutoff, 
                                                         calc_dir=calc_dir, dirprefix='prot')
-                prot_names_list.append(best_conf) #this is the name of some protonated tautomer
-                prot_energy_list.append(best_energy) #this is the energy of some protonated tautomer
+                prot_names_list.append(best_conf) #this is the name of one of the protonated tautomers
+                prot_energy_list.append(best_energy) #this is the energy of one of the protonated tautomers
                 
             self.tauts[taut_name]['prot']['reac_sites'] = catoms
             self.tauts[taut_name]['prot']['smiles_list'] = csmiles

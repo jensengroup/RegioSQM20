@@ -1,8 +1,8 @@
 import numpy as np
 from rdkit import Chem
 
-def find_identical_atoms(smi, atom_list):
-    rdkit_mol = Chem.MolFromSmiles(smi)
+def find_identical_atoms(rdkit_mol, atom_list):
+    
     len_list = len(atom_list)
     
     atom_rank = list(Chem.CanonicalRankAtoms(rdkit_mol, breakTies=False))

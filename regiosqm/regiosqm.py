@@ -225,7 +225,7 @@ def main():
                     formatter_class=argparse.RawDescriptionHelpFormatter,
                     epilog=epilog)
 
-    parser.add_argument('-v', '--version', action='version', version='RegioSQM' + __version__ + "\nhttps://github.com/jensengroup/regiosqm20")
+    parser.add_argument('-v', '--version', action='version', version='RegioSQM' + __version__ + "\nhttps://github.com/jensengroup/RegioSQM20")
     parser.add_argument('-r', '--run', nargs=1, action='store', metavar='smiles_filename', help="")
 
     parser.add_argument('-c', '--cut', action='store', type=float, metavar='N', default=1.0, help="Energy cut-off for 'corr' classification (kcal/mol)")

@@ -12,9 +12,9 @@ More information is available at the [RegioSQM20 paper](https://doi.org/XX.XXXX/
 
 We recommend using anaconda to installed the following packages in a Python 3 environment:
 
-    - xTB v. 6.3.2 or newer (https://github.com/grimme-lab/xtb)
-    - RDKit v. 2020.03.1 or newer (http://www.rdkit.org/docs/Install.html)
-    - obabel v. 2.4.1 or newer (https://openbabel.org/docs/dev/Installation/install.html)
+    - xTB version 6.3.2 or newer (https://github.com/grimme-lab/xtb)
+    - RDKit version 2020.03.1 or newer (http://www.rdkit.org/docs/Install.html)
+    - obabel version 2.4.1 or newer (https://openbabel.org/docs/dev/Installation/install.html)
 
 RegioSQM20 depends on xTB for quantum calculations, OpenBabel for some
 formation convertion and RDKit in the Python environment for everything else.

@@ -6,7 +6,7 @@ The reactive sites are identified using semiempirical quantum mechanical calcula
 The program generates possible tautomers of the input molecule by employing RDKit (v. 2020.03.1 or newer), and highlights reaction sites with relative proton binding affinities below 1 kcal/mol (green circles) and 3 kcal/mol (red circles) for all tautomers with relative energies below 15 kcal/mol.
 Furthermore, RegioSQM20 assings a qualitative prediction of the reactivity to each tautomer (low, medium, or high) based on the absolute proton affinity of the most stable protonated isomer.
 
-More information is available at the [RegioSQM20 paper](https://doi.org/XX.XXXX/XXXXXXX).
+More information is available at the [RegioSQM20 paper](https://doi.org/10.1186/s13321-021-00490-7).
 
 # Installation
 
